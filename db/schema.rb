@@ -10,24 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_085139) do
-  create_table "comments", charset: "utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "tweet_id"
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tweets", charset: "utf8", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2025_02_26_102816) do
+  create_table "tweets", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
     t.string "text"
     t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
   end
 
-  create_table "users", charset: "utf8", force: :cascade do |t|
+  create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -35,7 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_085139) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
